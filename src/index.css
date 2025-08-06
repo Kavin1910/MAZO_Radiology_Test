@@ -1,0 +1,339 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 25% 27%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 221 83% 53%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 221 83% 53%;
+
+    /* Fixed Mazo Brand Colors - Ensuring Blue Theme */
+    --mazo-primary: 221 83% 53%;
+    --mazo-secondary: 221 91% 61%;
+    --mazo-accent: 142 76% 36%;
+    --mazo-neutral: 210 40% 98%;
+    --mazo-surface: 0 0% 100%;
+    --mazo-error: 0 72% 51%;
+    --mazo-warning: 38 92% 50%;
+    --mazo-success: 142 76% 36%;
+    
+    /* Fixed Gradient Colors - Blue Theme Only */
+    --gradient-primary: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+    --gradient-secondary: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+    --gradient-accent: linear-gradient(135deg, #22c55e 0%, #4ade80 50%, #86efac 100%);
+    --gradient-surface: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+  }
+
+  .dark {
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 222 84% 4.9%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 221 83% 53%;
+
+    --sidebar-background: 222 84% 4.9%;
+    --sidebar-foreground: 215 20% 65%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 215 20% 65%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 221 83% 53%;
+
+    /* Dark theme adjustments */
+    --mazo-primary: 221 83% 53%;
+    --mazo-secondary: 270 95% 75%;
+    --mazo-accent: 142 76% 36%;
+    --mazo-neutral: 217 33% 17%;
+    --mazo-surface: 222 84% 4.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%) !important;
+    min-height: 100vh;
+  }
+
+  /* Improved scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100 rounded-lg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-lg hover:bg-slate-400;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-blue-100 text-blue-900;
+  }
+}
+
+@layer components {
+  /* Fixed Mazo Brand Classes - Blue Theme Only */
+  .bg-mazo-gradient-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%) !important;
+  }
+
+  .bg-mazo-gradient-secondary {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%) !important;
+  }
+
+  .bg-mazo-gradient-accent {
+    background: linear-gradient(135deg, #22c55e 0%, #4ade80 50%, #86efac 100%) !important;
+  }
+
+  .bg-mazo-gradient-surface {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%) !important;
+  }
+
+  /* Glass morphism effects */
+  .glass-card {
+    @apply backdrop-blur-md bg-white/80 border border-white/20 shadow-xl;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-md bg-slate-900/80 border border-slate-700/20;
+  }
+
+  /* Enhanced shadow system */
+  .shadow-mazo-sm {
+    box-shadow: 0 1px 3px 0 rgba(59, 130, 246, 0.1), 0 1px 2px 0 rgba(59, 130, 246, 0.06);
+  }
+
+  .shadow-mazo-md {
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1), 0 2px 4px -1px rgba(59, 130, 246, 0.06);
+  }
+
+  .shadow-mazo-lg {
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.1), 0 4px 6px -2px rgba(59, 130, 246, 0.05);
+  }
+
+  .shadow-mazo-xl {
+    box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
+  }
+
+  /* Animated elements */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.4s ease-out;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:shadow-mazo-lg hover:-translate-y-1;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)];
+  }
+
+  /* Text gradients */
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-secondary {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Button enhancements */
+  .btn-primary-enhanced {
+    @apply bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white font-semibold py-3 px-6 rounded-xl shadow-mazo-md hover:shadow-mazo-lg transform hover:-translate-y-0.5 transition-all duration-300 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900;
+  }
+
+  .btn-secondary-enhanced {
+    @apply bg-gradient-to-r from-slate-600 via-slate-700 to-slate-800 text-white font-semibold py-3 px-6 rounded-xl shadow-mazo-md hover:shadow-mazo-lg transform hover:-translate-y-0.5 transition-all duration-300;
+  }
+
+  .btn-accent-enhanced {
+    @apply bg-gradient-to-r from-green-600 via-green-700 to-green-800 text-white font-semibold py-3 px-6 rounded-xl shadow-mazo-md hover:shadow-mazo-lg transform hover:-translate-y-0.5 transition-all duration-300;
+  }
+
+  /* Card enhancements */
+  .card-enhanced {
+    @apply bg-white rounded-2xl shadow-mazo-md border border-slate-200/60 hover:shadow-mazo-lg transition-all duration-300 hover:-translate-y-1;
+  }
+
+  /* Input enhancements */
+  .input-enhanced {
+    @apply bg-white/50 backdrop-blur-sm border-2 border-slate-200 rounded-xl px-4 py-3 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  /* Typography scale */
+  .text-display-1 {
+    @apply text-6xl font-bold tracking-tight;
+  }
+
+  .text-display-2 {
+    @apply text-5xl font-bold tracking-tight;
+  }
+
+  .text-display-3 {
+    @apply text-4xl font-bold tracking-tight;
+  }
+
+  .text-headline-1 {
+    @apply text-3xl font-semibold tracking-tight;
+  }
+
+  .text-headline-2 {
+    @apply text-2xl font-semibold tracking-tight;
+  }
+
+  .text-title-1 {
+    @apply text-xl font-semibold;
+  }
+
+  .text-title-2 {
+    @apply text-lg font-semibold;
+  }
+
+  .text-body-1 {
+    @apply text-base font-normal;
+  }
+
+  .text-body-2 {
+    @apply text-sm font-normal;
+  }
+
+  .text-caption {
+    @apply text-xs font-medium;
+  }
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Focus states */
+.focus-ring {
+  @apply focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500;
+}
+
+/* Loading states */
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
